@@ -46,4 +46,8 @@ class Admin::UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :nickname, :email, :admin, :password, :password_confirmation)
   end
+
+  def require_admin
+    render template: 'public/404.html', status: 404, layout: 'application', content_type: 'text/html' unless current_user.admin?
+  end
 end

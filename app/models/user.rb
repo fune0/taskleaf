@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true
+
+  has_many :tasks
 end
