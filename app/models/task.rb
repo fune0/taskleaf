@@ -14,4 +14,8 @@ class Task < ApplicationRecord
         self.name = '名前なし'
       end
     end
+
+    def self.search(keyword)
+      Task.where('name LIKE ?', "%#{keyword}%")
+    end
 end
