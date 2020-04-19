@@ -14,12 +14,4 @@ class Task < ApplicationRecord
         self.name = '名前なし'
       end
     end
-
-    def self.search(search)
-      if search
-        Task.where('name LIKE(?)', "%#{search}%")
-      else
-        Task.all
-      end
-    end
 end
